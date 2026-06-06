@@ -16,6 +16,6 @@ const arrayKeys = [
   'tombstones',
 ] as const;
 
-function isArrayKey(key: string): key is (typeof arrayKeys)[number] {
+export function isArrayKey(key: string): key is (typeof arrayKeys)[number] {
   return (arrayKeys as readonly string[]).includes(key);
 }
