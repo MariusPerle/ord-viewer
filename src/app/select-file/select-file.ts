@@ -9,8 +9,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './select-file.css',
 })
 export class SelectFile {
-  private router = inject(Router)
-  private activatedRoute  = inject(ActivatedRoute);
+  private router = inject(Router);
+  private activatedRoute = inject(ActivatedRoute);
 
   myModel = signal({
     link: '',
@@ -34,8 +34,8 @@ export class SelectFile {
             relativeTo: this.activatedRoute,
             queryParams: {
               ordFile: field.link().value(),
-            }
-          })
+            },
+          });
         },
       },
     },
