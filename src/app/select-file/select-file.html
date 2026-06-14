@@ -1,0 +1,9 @@
+<form [formRoot]="myForm">
+  <input type="url" placeholder="ORD File Link" [formField]="myForm.link">
+  @if (myForm.link().invalid() && myForm.link().touched() && myForm.link().value().length) {
+    @for (error of myForm.link().errors(); track error.kind) {
+      <div class="error">{{ error.message }}</div>
+    }
+  }
+  <button type="submit" >Submit</button>
+</form>
