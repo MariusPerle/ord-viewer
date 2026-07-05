@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Resource } from './resource';
+import { ApiResource } from './api-resource';
 
 describe('Resource', () => {
-  let component: Resource;
-  let fixture: ComponentFixture<Resource>;
+  let component: ApiResource;
+  let fixture: ComponentFixture<ApiResource>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Resource],
+      imports: [ApiResource],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Resource);
+    fixture = TestBed.createComponent(ApiResource);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

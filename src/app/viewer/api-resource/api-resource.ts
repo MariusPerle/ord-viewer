@@ -7,12 +7,12 @@ import { MarkdownPipe } from 'ngx-markdown';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'ord-resource',
+  selector: 'ord-api-resource',
   imports: [MarkdownPipe, AsyncPipe],
-  templateUrl: './resource.html',
-  styleUrl: './resource.css',
+  templateUrl: './api-resource.html',
+  styleUrl: './api-resource.css',
 })
-export class Resource {
+export class ApiResourceComponent {
   resource = input.required<ApiResource>();
   showMore = signal(false);
 }
