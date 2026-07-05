@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, input, signal, ChangeDetectionStrategy } from '@angular/core';
 import {
   ApiResource,
   EventResource,
@@ -12,5 +12,5 @@ import {
 })
 export class Resource {
   resource = input.required<ApiResource>();
-  showMore = signal(false)
+  showMore = signal(false);
 }
