@@ -4,10 +4,11 @@ import {
   EventResource,
 } from '@open-resource-discovery/specification/dist/generated/spec/v1/types/Document';
 import { MarkdownPipe } from 'ngx-markdown';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'ord-resource',
-  imports: [MarkdownPipe],
+  imports: [MarkdownPipe, AsyncPipe],
   templateUrl: './resource.html',
   styleUrl: './resource.css',
 })

@@ -2,12 +2,11 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OrdDocument } from '@open-resource-discovery/specification';
 import { isArrayKey } from './ord.utils';
-import { JsonPipe } from '@angular/common';
 import { Package } from './package/package';
 
 @Component({
   selector: 'ord-viewer',
-  imports: [JsonPipe, Package],
+  imports: [Package],
   templateUrl: './viewer.html',
   styleUrl: './viewer.css',
 })

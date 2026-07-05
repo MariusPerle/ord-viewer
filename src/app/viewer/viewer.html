@@ -1,12 +1,45 @@
 @if (loading()) {
-   <p>Loading </p>
+  <div class="flex items-center justify-center py-12">
+    <div class="text-center">
+      <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 mb-4">
+        <svg class="w-6 h-6 text-blue-600 dark:text-blue-400 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+        </svg>
+      </div>
+      <p class="text-slate-600 dark:text-slate-400">Loading ORD document...</p>
+    </div>
+  </div>
 } @else {
   @if (document(); as doc) {
-    {{doc.description}}
-    @for (pkg of doc.packages; track pkg.ordId) {
-      <ord-package [ordId]="pkg.ordId" [document]="doc" />
-    }
+    <div class="space-y-6">
+      @if (doc.description) {
+        <p class="text-slate-600 dark:text-slate-300 leading-relaxed">{{ doc.description }}</p>
+      }
+
+      <!-- Packages section -->
+      @if (doc.packages && doc.packages.length > 0) {
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+            <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+            </svg>
+            Packages
+          </h2>
+          <div class="grid gap-4">
+            @for (pkg of doc.packages; track pkg.ordId) {
+              <ord-package [ordId]="pkg.ordId" [document]="doc" />
+            }
+          </div>
+        </div>
+      }
+    </div>
   } @else {
-    <p>No document available.</p>
+    <div class="text-center py-12">
+      <svg class="w-16 h-16 text-slate-300 dark:text-slate-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4m0 4v.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <p class="text-slate-600 dark:text-slate-400 text-lg">No document available</p>
+      <p class="text-slate-500 dark:text-slate-500 text-sm mt-1">Load an ORD file to get started</p>
+    </div>
   }
 }
