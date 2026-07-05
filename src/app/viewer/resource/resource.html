@@ -1,9 +1,9 @@
 {{ resource().title }}
 <button (click)="showMore.set(!showMore())"> show more</button>
 @if (!showMore()) {
-  <div>{{ resource().shortDescription }}</div>
+  <div [innerHTML]="resource().shortDescription | markdown"></div>
 } @else {
-  <div>{{ resource().description }}</div>
+  <div [innerHTML]="resource().description | markdown"></div>
   {{ resource().apiProtocol }}
   @for (definitions of resource().resourceDefinitions; track definitions.url) {
     <div>
@@ -15,7 +15,6 @@
         }
       }
     </div>
-
   }
 }
 
