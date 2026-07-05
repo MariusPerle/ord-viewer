@@ -1,6 +1,5 @@
 {
   "name": "ord-viewer",
-  "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,7 +9,6 @@
     "lint": "ng lint",
     "format": "prettier --write ."
   },
-  "private": true,
   "packageManager": "npm@11.4.1",
   "dependencies": {
     "@angular/common": "^22.0.5",
