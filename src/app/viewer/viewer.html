@@ -1,3 +1,12 @@
-<p>viewer works!</p>
-{{ loading() ? 'Loading...' : 'Loaded!' }}
-{{ document() | json }}
+@if (loading()) {
+   <p>Loading </p>
+} @else {
+  @if (document(); as doc) {
+    {{doc.description}}
+    @for (pkg of doc.packages; track pkg.ordId) {
+      <ord-package [ordId]="pkg.ordId" [document]="doc" />
+    }
+  } @else {
+    <p>No document available.</p>
+  }
+}

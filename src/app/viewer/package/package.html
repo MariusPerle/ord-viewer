@@ -1,0 +1,12 @@
+@if (ordPkg(); as pkg) {
+  <h2>{{pkg.title}}</h2>
+  <button (click)="showMore.set(!showMore())"> show more </button>
+  @if (!showMore()) {
+    <div>{{pkg.shortDescription}}</div>
+  } @else {
+    <div>{{pkg.description}}</div>
+    @for (resource of resources(); track resource.ordId) {
+      <ord-resource [resource]="resource" />
+    }
+  }
+}

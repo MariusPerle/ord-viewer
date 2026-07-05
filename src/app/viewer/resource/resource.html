@@ -1,0 +1,21 @@
+{{ resource().title }}
+<button (click)="showMore.set(!showMore())"> show more</button>
+@if (!showMore()) {
+  <div>{{ resource().shortDescription }}</div>
+} @else {
+  <div>{{ resource().description }}</div>
+  {{ resource().apiProtocol }}
+  @for (definitions of resource().resourceDefinitions; track definitions.url) {
+    <div>
+      @if (definitions.type.startsWith('openapi')) {
+        OpenAPI: <a href="{{definitions.url}}" target="_blank">{{ definitions.url }}</a>
+      } @else if (definitions.type === 'custom') {
+        @if (definitions.customType === 'mp:documentation:v1') {
+          Official Documentation: <a href="{{definitions.url}}" target="_blank">{{ definitions.url }}</a>
+        }
+      }
+    </div>
+
+  }
+}
+
